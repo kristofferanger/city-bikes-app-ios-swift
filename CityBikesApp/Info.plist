@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseDescription</key>
+	<string>Behöver tillgång till GPS för att beräkna avständ till närmaste station.</string>
 </dict>
 </plist>
