@@ -7,24 +7,41 @@
 //
 
 import UIKit
+import MapKit
 
 class StationDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var infoLabel: UILabel!
+
+    var infoString : String?
+    var coordinate : CLLocationCoordinate2D?
+    
+    var defaultCoordinate : CLLocationCoordinate2D {
+        // Malmö city
+        return CLLocationCoordinate2D.init(latitude: 55.60587, longitude: 13.00073)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController!.navigationBar.isHidden = false
+        self.infoLabel.text = infoString
+        updateMap()
     }
-    */
-
+    
+    func updateMap() {
+        if let pinLocation = coordinate {
+            // add pin
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = pinLocation
+            mapView.addAnnotation(annotation)
+        }
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: coordinate ?? defaultCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+        mapView.setRegion(region, animated: true)
+    }
 }

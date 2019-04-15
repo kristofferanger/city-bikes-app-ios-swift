@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ctl-9y-HpM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ctl-9y-HpM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,10 +23,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="n2A-2l-Rui"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="9pr-YP-2tI" id="s70-ef-Gab"/>
+                                </connections>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ory-Qy-Oy0">
                                 <rect key="frame" x="0.0" y="356" width="375" height="311"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pr-YP-2tI" id="5p8-lE-6v1"/>
+                                    <outlet property="delegate" destination="9pr-YP-2tI" id="vuB-73-AVs"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,11 +52,58 @@
                     <connections>
                         <outlet property="mapView" destination="NWs-Fh-hEX" id="py9-7E-mqT"/>
                         <outlet property="tableView" destination="Ory-Qy-Oy0" id="MeX-9f-SjN"/>
+                        <segue destination="a6q-EA-zhz" kind="show" identifier="TableSegue" id="rEQ-9U-PK5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCe-ex-JpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1839.2" y="104.7976011994003"/>
+        </scene>
+        <!--Station Details View Controller-->
+        <scene sceneID="CIk-JP-9Fs">
+            <objects>
+                <viewController id="a6q-EA-zhz" customClass="StationDetailsViewController" customModule="CityBikesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZCZ-uX-kck">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OuM-D3-ooV">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eFL-uf-U8X">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="521"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="a6q-EA-zhz" id="bu2-pM-vXv"/>
+                                        </connections>
+                                    </mapView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07e-bY-bN5">
+                                        <rect key="frame" x="0.0" y="551" width="375" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DBq-Ub-NPd" firstAttribute="bottom" secondItem="OuM-D3-ooV" secondAttribute="bottom" id="1y6-eY-DYn"/>
+                            <constraint firstItem="DBq-Ub-NPd" firstAttribute="bottom" secondItem="OuM-D3-ooV" secondAttribute="bottom" id="4dD-pW-ukt"/>
+                            <constraint firstItem="DBq-Ub-NPd" firstAttribute="bottom" secondItem="OuM-D3-ooV" secondAttribute="bottom" id="IcK-fE-QFE"/>
+                            <constraint firstItem="OuM-D3-ooV" firstAttribute="leading" secondItem="DBq-Ub-NPd" secondAttribute="leading" id="Nsr-HD-4qe"/>
+                            <constraint firstItem="OuM-D3-ooV" firstAttribute="top" secondItem="DBq-Ub-NPd" secondAttribute="top" id="dA6-2z-FKt"/>
+                            <constraint firstItem="DBq-Ub-NPd" firstAttribute="trailing" secondItem="OuM-D3-ooV" secondAttribute="trailing" id="gee-5y-BC9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DBq-Ub-NPd"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="07e-bY-bN5" id="11C-RG-UKE"/>
+                        <outlet property="mapView" destination="eFL-uf-U8X" id="s7p-Bf-w8w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pwg-gH-6UP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724" y="105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lfS-Sf-zHa">

@@ -11,7 +11,7 @@
 
 @implementation DataModels
 
-+ (nonnull NSArray *)arrayOfModelObjects:(nullable NSArray *)arrayOfJSONData parsedByClass:(Class)dataModelClass {
++ (nonnull NSArray *)arrayOfModelObjects:(NSArray *)arrayOfJSONData parsedByClass:(Class)dataModelClass {
 
     NSMutableArray *parsedObjects = [NSMutableArray new];
     

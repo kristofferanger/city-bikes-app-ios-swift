@@ -11,7 +11,7 @@
 		8496B3AD223118DF00023F1F /* Stations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B3A7223118DE00023F1F /* Stations.m */; };
 		8496B3AE223118DF00023F1F /* Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B3A9223118DF00023F1F /* Extra.m */; };
 		8496B3AF223118DF00023F1F /* DataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496B3AC223118DF00023F1F /* DataModels.m */; };
-		8496B3B122311FD400023F1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496B3B022311FD300023F1F /* Location.swift */; };
+		849C58D522324C30004CCE7A /* ApiHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C58D422324C30004CCE7A /* ApiHelpers.swift */; };
 		84C31B85222FB52E006425F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C31B84222FB52E006425F6 /* AppDelegate.swift */; };
 		84C31B87222FB52E006425F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C31B86222FB52E006425F6 /* ViewController.swift */; };
 		84C31B8A222FB52E006425F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C31B88222FB52E006425F6 /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 		8496B3AA223118DF00023F1F /* Stations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stations.h; sourceTree = "<group>"; };
 		8496B3AB223118DF00023F1F /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		8496B3AC223118DF00023F1F /* DataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModels.m; sourceTree = "<group>"; };
-		8496B3B022311FD300023F1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		849C58D422324C30004CCE7A /* ApiHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelpers.swift; sourceTree = "<group>"; };
 		84C31B81222FB52E006425F6 /* CityBikesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityBikesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C31B84222FB52E006425F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C31B86222FB52E006425F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,11 +49,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84B473C62239048000F560A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84BCBCC2225C895600224499 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84C31B86222FB52E006425F6 /* ViewController.swift */,
+				8496B3A42231147800023F1F /* StationDetailsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84BCBCC3225C899D00224499 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		84BCBCC4225C89B500224499 /* Models (ObjC) */ = {
+			isa = PBXGroup;
+			children = (
+				8496B3AB223118DF00023F1F /* DataModels.h */,
+				8496B3AC223118DF00023F1F /* DataModels.m */,
+				8496B3A8223118DF00023F1F /* Extra.h */,
+				8496B3A9223118DF00023F1F /* Extra.m */,
+				8496B3AA223118DF00023F1F /* Stations.h */,
+				8496B3A7223118DE00023F1F /* Stations.m */,
+			);
+			name = "Models (ObjC)";
+			sourceTree = "<group>";
+		};
+		84BCBCC5225C89BF00224499 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				84C31B8B222FB52F006425F6 /* Assets.xcassets */,
+				84C31B84222FB52E006425F6 /* AppDelegate.swift */,
+				8496B3A6223118DE00023F1F /* CityBikesApp-Bridging-Header.h */,
+				84C31B88222FB52E006425F6 /* Main.storyboard */,
+				84C31B8D222FB52F006425F6 /* LaunchScreen.storyboard */,
+				84C31B90222FB52F006425F6 /* Info.plist */,
+			);
+			name = Recources;
+			sourceTree = "<group>";
+		};
+		84BCBCC6225C8A1400224499 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				849C58D422324C30004CCE7A /* ApiHelpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		84C31B78222FB52E006425F6 = {
 			isa = PBXGroup;
 			children = (
 				84C31B83222FB52E006425F6 /* CityBikesApp */,
 				84C31B82222FB52E006425F6 /* Products */,
+				84B473C62239048000F560A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,21 +126,11 @@
 		84C31B83222FB52E006425F6 /* CityBikesApp */ = {
 			isa = PBXGroup;
 			children = (
-				84C31B84222FB52E006425F6 /* AppDelegate.swift */,
-				84C31B86222FB52E006425F6 /* ViewController.swift */,
-				8496B3A42231147800023F1F /* StationDetailsViewController.swift */,
-				8496B3B022311FD300023F1F /* Location.swift */,
-				8496B3AB223118DF00023F1F /* DataModels.h */,
-				8496B3AC223118DF00023F1F /* DataModels.m */,
-				8496B3A8223118DF00023F1F /* Extra.h */,
-				8496B3A9223118DF00023F1F /* Extra.m */,
-				8496B3AA223118DF00023F1F /* Stations.h */,
-				8496B3A7223118DE00023F1F /* Stations.m */,
-				84C31B88222FB52E006425F6 /* Main.storyboard */,
-				84C31B8B222FB52F006425F6 /* Assets.xcassets */,
-				84C31B8D222FB52F006425F6 /* LaunchScreen.storyboard */,
-				84C31B90222FB52F006425F6 /* Info.plist */,
-				8496B3A6223118DE00023F1F /* CityBikesApp-Bridging-Header.h */,
+				84BCBCC4225C89B500224499 /* Models (ObjC) */,
+				84BCBCC3225C899D00224499 /* Views */,
+				84BCBCC2225C895600224499 /* Controllers */,
+				84BCBCC6225C8A1400224499 /* Helpers */,
+				84BCBCC5225C89BF00224499 /* Recources */,
 			);
 			path = CityBikesApp;
 			sourceTree = "<group>";
@@ -159,13 +207,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849C58D522324C30004CCE7A /* ApiHelpers.swift in Sources */,
 				84C31B87222FB52E006425F6 /* ViewController.swift in Sources */,
 				84C31B85222FB52E006425F6 /* AppDelegate.swift in Sources */,
 				8496B3AE223118DF00023F1F /* Extra.m in Sources */,
 				8496B3AD223118DF00023F1F /* Stations.m in Sources */,
 				8496B3A52231147800023F1F /* StationDetailsViewController.swift in Sources */,
 				8496B3AF223118DF00023F1F /* DataModels.m in Sources */,
-				8496B3B122311FD400023F1F /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +371,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityBikesApp/CityBikesApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -343,7 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = se.kriang.CityBikesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CityBikesApp/CityBikesApp-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DataModels : NSObject
 
-+ (nonnull NSArray *)arrayOfModelObjects:(nullable NSArray *)arrayOfJSONData parsedByClass:(Class)dataModelClass;
++ (nonnull NSArray *)arrayOfModelObjects:(NSArray *)arrayOfJSONData parsedByClass:(Class)dataModelClass;
 
 @end
 

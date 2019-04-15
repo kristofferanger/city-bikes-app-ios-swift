@@ -48,7 +48,7 @@ NSString *const kStationsTimestamp = @"timestamp";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.longitude = [[self objectOrNilForKey:kStationsLongitude fromDictionary:dict] doubleValue];
             self.stationsIdentifier = [self objectOrNilForKey:kStationsId fromDictionary:dict];
             self.extra = [Extra modelObjectWithDictionary:[dict objectForKey:kStationsExtra]];
